@@ -1,0 +1,103 @@
+project-notes-adoptionApp.txt
+
+made our boiler plate react app (in the current dir.) with: 
+npx create-react-app adoption-app
+& created the github repository so we can work from different devices;
+
+We're using the udemy videos now, so this project/part starts on video 26 of the course: 
+"The React Testing Library Bootcamp - The Developer Guide"  by Laith Harb
+https://www.udemy.com/course/the-react-testing-library-bootcamp/learn/lecture/29987370#overview
+
+So for time stamps I will have to say the video, then the time if needed, but I can try to wrap up each video;
+
+~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~
+____________________________________________________________________
+
+about the app: 
+more complicated than the signup-form app, so we'll learn more about RTL
+
+Users will be able to look at the different cats, see the cats name, picture, and contact info (phone & email)
+if they're insterested in adopting the cat; They also can 'favorite' cats they like by clicking a little heart
+icon that gets filled out if they click on it (can favorite multiple cats);
+Users can filter the cats by gender (M/F), or by favorites/!favorites, or a combo of the two filters; 
+
+Addtionally, the data that is presented in the 'cat cards' won't be coming from our react app directly,
+the data will come from http requests to another server;
+We can inspect the page in our browser.. (maybe just in chrome, which might rule out using my old ass MBAir, or maybe 
+I can still do it if I use an old version of chrome and just don't go beyond local host on the outdated chrome..?)
+so inspect the page, go to network tab, refresh the page, you can find a request called 'cats' which shows data
+coming  back from a server; 
+
+We'll also learn how to handle http requests in our RTL tests, which is good.
+
+~    ~    ~    ~    ~
+
+vid 27: Breakdown of App
+This is relatively large application so we can't just put all the code in the one App.js file like we did for the
+signup-form-app; We're going to have to split this app into multiple components; 
+
+What are those components going to be? What will occur in those components? 
+The most obvious component--> The 'card' component; 
+1. "Card" component will display each individual cat; 
+This card component will take in some props (probably the best way to get the data into the component):
+Name of cat
+contact phone number
+contact email
+Favored or !Favored       --> and the card will take in these props, but other than that, it will be a 
+straightforward component
+
+2. "Cards" component is where all the individual "Card" components will live; 
+Basically a big component to house the smaller components--> Cards is parent of Card in heirarchy; 
+Multiple 'card' components will live in larger 'cards' component, not sure how I can restate this;
+-"Cards" will get an array of objects that will contain information about the cats, and it will Map over them, 
+and forEach Object, it's going to render a "Card" component; so also relatively simple, right? 
+
+3. "Filter" component which will allow users to filter the cats
+
+4. Overall component to group everything together will be called the "Pets" component
+'Pets' will be responsible for making the http requests to our server in order to get the 
+'cat data'. Once it gets the 'cat data' it will filter it based on the parameters passed 
+from the 'Filter' component, then it will pass that filtered data to the 'Cards' component,
+which will render that data as individual 'Card' components;
+
+The web app/page will be structured something like this crude ascii diagram:
+
+_________________________________________________
+|             ___________________               |      ◄|'Pets'
+| 'Filter'    |  {Card}  {Card} |   ◄ 'Cards'   |      ◄|       
+|    |        |  {Card}  {Card} |               |      ◄|
+|             |  {Card} ...     |               |      ◄|
+|             |_________________|               |      ◄|
+|_______________________________________________|
+
+
+Where do we start to build all of these things? ?  We will start with the most basic component/element 
+of our app, which is the 'Card'--in the next video; 
+
+(video:)
+#28
+We'll start by running npx create-react-app adoption-app if we haven't already done so,
+@30 sec:
+then we'll make a 'components' folder w/in the src directory,
+& this where all our components are going to live;
+
+mkdir src/components/Card 
+touch Card.js
+
+
+
+
+
+
+
+
+
+
+~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~
+____________________________________________________________________
+
+  ∴   ↓   →   ←   ↔    ▲    ▼    ►    ◄   👍 
+
+his repository: 
+https://github.com/harblaith7/React-Testing-Library-Udemy-Course
+
