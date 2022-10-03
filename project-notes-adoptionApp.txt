@@ -116,6 +116,69 @@ Maybe he will address this in the video?
 It seems like a npm/node version issue; Since I created on the MBA, I don't think it's using the same version
 as my dev MBP;
 Maybe I need to create-react-app again on the dev MBP;
+I tried re-scaffolding the app from my dev MBP, but still got the same error; 
+Ultimately I had to run this command to explicitly install a specific version of jest-watch-typeahead:
+npm i -D --exact jest-watch-typeahead@0.6.5
+
+although I wonder if it would work if I simply said "npm i jest-watch-typeahead"
+anyway, we're back in business;  We don't have any asserts yet, so nothing to pass/fail;
+
+Part of the problem was that we weren't exporting the Card component correctly; 
+we had:  export default Card = () => { ...}
+we needed to break it up into: const Card = () => {... };  export default Card;
+
+* interesting note-- the test works when Card.js is like this: 
+
+const Card = () => {
+    return <div></div>;
+};
+
+export default Card;
+
+******************
+But NOT like this: 
+******************
+export default Card;
+const Card = () => {
+    return <div></div>;
+};
+******************
+& NOT like this:   (this one makes sense, b/c it's reading it all as one line essentially) 
+******************
+const Card = () => {
+    return <div></div>;
+}
+export default Card;
+
+*****************************
+
+He's using unsplash.com for his cat images, but I can't seem to access the pictures there, maybe just on the VPN, idk,
+but have to gather some cat image urls from google images; Here are some cat image URLs:
+https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_2x1.jpg
+https://cdn.theatlantic.com/thumbor/W544GIT4l3z8SG-FMUoaKpFLaxE=/0x131:2555x1568/1600x900/media/img/mt/2017/06/shutterstock_319985324/original.jpg
+https://www.humanesociety.org/sites/default/files/styles/1240x698/public/2020-07/kitten-510651.jpg?h=f54c7448&itok=ZhplzyJ9
+http://www.alleycat.org/wp-content/uploads/2019/03/FELV-cat.jpg
+https://cdn.britannica.com/39/7139-050-A88818BB/Himalayan-chocolate-point.jpg
+https://media.npr.org/assets/img/2021/08/11/gettyimages-1279899488_wide-f3860ceb0ef19643c335cb34df3fa1de166e2761-s1100-c50.jpg
+https://www.fundacion-affinity.org/sites/default/files/los-10-sonidos-principales-del-gato-fa.jpg
+https://upload.wikimedia.org/wikipedia/commons/b/bc/Juvenile_Ragdoll.jpg
+https://253qv1sx4ey389p9wtpp9sj0-wpengine.netdna-ssl.com/wp-content/uploads/2022/09/08_22_Winery_Cats_HERO_GettyImages_475462958_1920x1280.jpg
+https://arc-anglerfish-washpost-prod-washpost.s3.amazonaws.com/public/WALN4MAIT4I6VLRIPUMJQAJIME.jpg
+
+We're passing some props into our mocked 'Card' component:
+name
+phone
+email
+image
+favoured
+
+We manually put those props into a rendered div in our test, so then we expect those props to be in the DOM/screen
+
+#28 @9min we put in our first test, and mine passes, but his failed... he said it should fail... not sure why that is;
+uh... ok, now it's failing.  no idea what this is about but we're up to speed with him at 9min; 
+
+
+
 
 
 
