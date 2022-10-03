@@ -84,11 +84,38 @@ then we'll make a 'components' folder w/in the src directory,
 mkdir src/components/Card 
 touch Card.js
 
+we add a default function to return an empty div at this point; 
+#28 @1.28 --> discussion of organinzing the test files for a project;
+We can put our .test files anywhere and Jest will detect them, but a common convention 
+is to create a new folder (within the folder that has the files we want to test) called "__test__"
+pwd --> components/Card
+mkdir __test__
+touch Card.test.js
+-----
+add our imports to the new 'test' file so we can access the 'Card' component file, and 
+also a couple things from @testing-library/react -- render & screen
+'render' so we render our virtual DOM for testing it,
+'screen' so we can access components in the DOM -- see the RTL documentation: 
+https://testing-library.com/docs/queries/about/#screen
 
+I think 'screen' basically acts as a shortcut for 'document.body' (?) & probably adds some extra functionality; 
 
+#28 @2.55  -- so what do we want to test? 
+first let`s test that we're rendering the name, email, & phone into a Card component;
 
+We also want to remove the default test file "App.test.js" just to remove that clutter
+and also the default test that will pass 
 
+we would run:
+npm run test
 
+but that command wasn't recognized, so I ran: 'npm i' to see if that will correct the issue;
+tried again and got a different error: "Test suite failed to run"
+Maybe he will address this in the video?
+
+It seems like a npm/node version issue; Since I created on the MBA, I don't think it's using the same version
+as my dev MBP;
+Maybe I need to create-react-app again on the dev MBP;
 
 
 
