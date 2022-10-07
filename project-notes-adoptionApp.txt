@@ -176,6 +176,46 @@ We manually put those props into a rendered div in our test, so then we expect t
 
 #28 @9min we put in our first test, and mine passes, but his failed... he said it should fail... not sure why that is;
 uh... ok, now it's failing.  no idea what this is about but we're up to speed with him at 9min; 
+later...
+I tried running the test again and it said 'no new tests related to changed files since last commit' 
+so it wouldn't run the test I we had; The message also said to 'press a to run all tests' so I did & that runs them;
+
+copy first test to use as scaffolding for new test;
+If we're copying stuff though, should we add the Card to a 'beforeEach' ? 
+That could be a problem though, b/c our Card component has some props in it, & if we put it in a 'beforeEach' hook,
+those props would always be the same, and we might not want that; 
+-So what's the solution?   --> We can make a function/variable to create our Card component <---
+We made a const called 'cardProps', and we add that to our 'Card' (while destructuring it to get all the props)
+
+//if we want to rename one of the props, we do it like this: 
+render(
+            <Card
+                {...cardProps}
+                name: "newNameOverwritesCardProps"
+            />
+        )//render
+
+-           -           -           -           -
+
+We added the tests for name, phone, & email; 
+Challenge--> make the test to test for the image!  Then proceed to #29 video; 
+
+-----------------------------------------------------
+#29 do the challenge: create test for image src; 
+I think I can use the alt text, and I can use--> expect(image).toHaveAttribute('src', 'the_url')
+#30--solution: 
+...so kind of cool, he did both of the things I tried to do in one 'expect'
+// get by alt text gives us the element... 
+// then we look at that element and see that it matches what we have in our Card component, 
+// which is coming from the cardProps object
+// which has a property called 'image', which has a property called 'url'
+
+--->   expect(screen.getByAltText(/cute cat/i).src).toBe(cardProps.image.url);
+
+*  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *
+* onto #31   *            *            *            *            *
+*  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *
+
 
 
 
