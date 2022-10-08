@@ -65,14 +65,14 @@ describe("Card", () => {
     test("should show outlined heart", () => {
         render(<Card {...cardProps} />);
         expect(screen.queryByAltText(/filled heart/i)).not.toBeInTheDocument();
-        expect(screen.getAllByAltText(/outlined heart/i)).toBeInTheDocument();
+        expect(screen.getByAltText(/outlined heart/i)).toBeInTheDocument();
     });
 
     test("should show filled heart", () => {
         //use default props except overwrite the 'favoured' prop:
         render(<Card {...cardProps} favoured = {true} />);
         expect(screen.queryByAltText(/outlined heart/i)).not.toBeInTheDocument();
-        expect(screen.getAllByAltText(/filled heart/i)).toBeInTheDocument();        
+        expect(screen.getByAltText(/filled heart/i)).toBeInTheDocument();        
     });
 
     test("Should toggle heart status", () => {
@@ -80,12 +80,12 @@ describe("Card", () => {
         //first click should fill heart
         userEvents.click(screen.getByRole("button"));
         expect(screen.queryByAltText(/outlined heart/i)).not.toBeInTheDocument();
-        expect(screen.getAllByAltText(/filled heart/i)).toBeInTheDocument();
+        expect(screen.getByAltText(/filled heart/i)).toBeInTheDocument();
         
         //2nd click should clear the heart
         userEvents.click(screen.getByRole("button"));
         expect(screen.queryByAltText(/filled heart/i)).not.toBeInTheDocument();
-        expect(screen.getAllByAltText(/outlined heart/i)).toBeInTheDocument();
+        expect(screen.getByAltText(/outlined heart/i)).toBeInTheDocument();
 
 
     });

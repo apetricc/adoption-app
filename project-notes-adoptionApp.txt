@@ -246,6 +246,10 @@ import heartOutlined from "../../svgs/heartOutlined.svg"
 I have 3 failing 4 passed.
 installed meld to compare: https://yousseb.github.io/meld/
 
+after some serious formatting and stuff, I found that I had the tests for 
+the hearts using "getAllByAltText" instead of "getByAltText" !! 
+vsCode autofilling messed me up there & i didn't notice it; 
+Now we're on the same page with Laith again; 
 
 
 

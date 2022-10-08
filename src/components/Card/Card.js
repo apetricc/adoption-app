@@ -1,6 +1,6 @@
 import heartFilled from "../../svgs/heartFilled.svg"
 import heartOutlined from "../../svgs/heartOutlined.svg"
-src/svgs/heartFilled.svg
+// src/svgs/heartFilled.svg
 const Card = ({name, phone, email, image, favoured}) => {
     return <div className="card">
         <div className="card-header">
