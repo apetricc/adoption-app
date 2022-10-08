@@ -306,7 +306,90 @@ we needed to add the import for Card.css to Card.js for the styling to work thou
 We also need to add the box shadow to the css file for .card maybe; 
 Now we have our Card component and the heart is behaving as expected, so that's good!
 
-@35: 
+@35: Heading into creating the tests/code for the "Cards" component, & a big concept that we'll 
+cover is querying for multiple components, I'd guess to test that we have multiple "Card" components rendered? 
+@36: getting into it; 
+WE want to remove the "Card" component we put into the App.js file since this isn't the way we want the final 
+product to display anyway, it was just for manual debugging purposes; 
+-mkdir ~/src/Cards
+-touch Cards.js
+
+-mkdir ~/src/Cards/__test__
+-touch Cards.test.js
+
+when we test the 'Cards' component, we will also test anything that it renders, this is as opposed to 
+what is called 'shallow rendering' which would only render the parent component and not the children; 
+Shallow rendering isn't really a thing in RTL though, and it's probably for the best according to Laith; 
+
+We start writing the tests after adding imports for RTL and Cards-->
+import { render, screen } from "@testing-library/react"
+import Cards from "../Cards"
+
+we also need some test data, so we can mkdir ~/src/mocks && touch cats.json
+or just DL his file and make the directory for it; 
+I made directory and file and copy pasted raw from github: 
+https://raw.githubusercontent.com/harblaith7/React-Testing-Library-Udemy-Course/main/02-Cat-Adoption-App/client/src/mocks/cats.json
+
+in our first test we first render()  the Cards component --> render(<Cards />)
+and we pass in the cats array (as 'cats') as our data --> render(<Cards cats={cats}/>)  
+--now the question is--> how can we query for the 'Card' components that will be inside our 'Cards' component??
+It's probably best to query for the top level component --> <div className = "card">
+... BUT, we can't really query just for a div like that (unless we gave it an id or something?);
+what we can do is change this "div" into an "article" which gives us some better functionality, 
+and lets us query by role, and use "article" as the role; 
+
+screen.getAllByRole("article")
+
+and b/c there are 5 elements in the 'cats' array (our mocked data),
+we can expect there to be 5 'Card' components or 5 'article' components -->
+--> expect(screen.getAllByRole("article").length).toBe(5);
+
+Our test won't pass yet, but we can check that it is failing by running 
+--> npm run test
+
+@ #37  make the multiple 'Card' test pass in our code; 
+aka build out the "Cards" component code; 
+
+We basically iterate over the 'cats' json array/map (?)
+and use the fields as properties for each 'Card' component we create; 
+
+create a Cards.css file in ~/components/Cards
+then we need to import the Cards.css file into "Cards.js" to use the styles there; 
+
+@38 manual testing of the "Cards" 
+go to our App component --> "App.js" 
+& render our "Cards" component; 
+
+--> <Cards cats={cats}></Cards>
+we have to put it in our "App" function, inside the return statement inside a div: 
+function App() {
+  return (
+    <div>
+      <Cards cats={cats}></Cards>
+    </div>
+  );
+}
+
+and also we have to import both "Cards" & "cats" -->
+import Cards from './components/Cards/Cards';
+import cats from "./mocks/cats.json"
+
+then we can check out the component by using: 
+npm run start  
+
+& we can see all the cat cards being rendered with the favorite buttons & pictures and info; 
+For some reason it is saying "return" at the top of my page though, and I don't know why; 
+I opened in chrome to check & it's the same as firefox...
+maybe I have an extra 'return' statement somewhere...
+
+@39  more complex user events --  --  --  --  --  --  --  --  --  --  --
+
+
+
+
+
+
+
 
 
 
