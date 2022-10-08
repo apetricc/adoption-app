@@ -226,7 +226,27 @@ https://raw.githubusercontent.com/harblaith7/React-Testing-Library-Udemy-Course/
 
 So we have all our 'Card' tests passing and we added a CSS file--move on to #32
 
-#32:
+#32:  now we need to add the tests for the heart/favorite aspect of the Card component; 
+When we 1st click it should fill the heart, if we click again it should clear the heart;
+
+#33: red green testing style--> we wrote the tests 1st, they are initially red/failed, & now
+we will write the code to make them pass green/pass
+Part of doing this means we have to DL the 2 svg files for heartFilled.svg
+& heartOutlined.svg  & put them in a new folder 'svgs' in our ~/src folder;
+
+https://github.com/harblaith7/React-Testing-Library-Udemy-Course/blob/main/02-Cat-Adoption-App/client/src/svgs/heartFilled.svg
+
+https://github.com/harblaith7/React-Testing-Library-Udemy-Course/blob/main/02-Cat-Adoption-App/client/src/svgs/heartOutlined.svg
+
+then we have to import them into our Card.js file like so:
+import heartFilled from "../../svgs/heartFilled.svg"
+import heartOutlined from "../../svgs/heartOutlined.svg"
+
+@3.08 of #33, he has 6 tests passed & 1 fail; 
+I have 3 failing 4 passed.
+installed meld to compare: https://yousseb.github.io/meld/
+
+
 
 
 
