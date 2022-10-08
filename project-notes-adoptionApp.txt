@@ -215,10 +215,18 @@ I think I can use the alt text, and I can use--> expect(image).toHaveAttribute('
 *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *
 * onto #31   *            *            *            *            *
 *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *
+Now we're going to write the minimum amount of code we have to in order for
+ our tests to pass;
+1st thing we'll do is pass in some props to our Card, so we put {} in the () to pass in an object aka 'stuff';
 
+We added some divs and classNames for the divs, and put variables for each of the fields that will go in a Card component; 
+We also went and downloaded his CSS file and copied it into a new CSS file
+in the components/Card folder.  His file is on github: 
+https://raw.githubusercontent.com/harblaith7/React-Testing-Library-Udemy-Course/main/02-Cat-Adoption-App/client/src/components/Card/Card.css
 
+So we have all our 'Card' tests passing and we added a CSS file--move on to #32
 
-
+#32:
 
 
 

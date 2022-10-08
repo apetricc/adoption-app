@@ -48,7 +48,7 @@ describe("Card", () => {
         expect(
             screen.getByText(/drew@gmail.com/i)).toBeInTheDocument();
     });
-    test("should get alt text for the picture of cat", () => {
+    test("should get the picture of cat", () => {
         render(
             <Card
                 {...cardProps}
