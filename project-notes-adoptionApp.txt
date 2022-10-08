@@ -249,7 +249,48 @@ installed meld to compare: https://yousseb.github.io/meld/
 after some serious formatting and stuff, I found that I had the tests for 
 the hearts using "getAllByAltText" instead of "getByAltText" !! 
 vsCode autofilling messed me up there & i didn't notice it; 
-Now we're on the same page with Laith again; 
+Now we're on the same page with Laith again;
+
+Our only failed test is testing the state of 'favoured' which we don't have a state yet,
+so now we'll create a local state to store the status of 'favoured'
+
+How did we do this? 
+* we created a const with "useState" to store the state that is an array with 2 values; 
+* We have to have "useState" to get the interaction from the user; 
+* We set a ternary statement inside the button, so if "isFavoured" is true, we have the heart, and if not the outlined heart; 
+* onClick we call a function which toggles the value ...
+... but why do we even need the 2nd value in this array..? And we're calling "setIsFavoured" like a function inside another 
+function called "toggleFavoured" ... I don't understand this part; 
+Maybe we can remove setIsFavoured?
+    //setting up a localState w/ initial value from our props that came in with anon func
+    const[isFavoured, setIsFavoured] = useState(favoured);
+    const toggleFavoured = () => {
+        setIsFavoured(!isFavoured);
+    };
+    return <div className="card">
+        <div className="card-header">
+            <img src={image.url} alt={image.alt} className="card-img"/>
+            {/* in the card-header we use a ternary expression to show the right heart svg */}
+            <button className="heart" onClick={toggleFavoured}>
+                {isFavoured ? (
+                    <img src={heartFilled} alt="filled heart" />
+                ) : <img src={heartOutlined} alt="outlined heart" />}
+            </button>
+        </div>
+
+I tried this which didn't work, I guess I need to read about toggling state onClick with javascript; 
+    const toggleFavoured = () => {
+        if (isFavoured) isFavoured = false; 
+        else isFavoured = true; 
+    };
+
+I think I really need to understand this, I'll try to find something on this
+
+-           -           -           -           -           -           -           -           -
+-           -           -           -           -           -           -           -           -
+@34: 
+
+
 
 
 
