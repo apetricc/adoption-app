@@ -1,6 +1,8 @@
 import { useState } from "react";
 import heartFilled from "../../svgs/heartFilled.svg"
 import heartOutlined from "../../svgs/heartOutlined.svg"
+import "./Card.css";
+
 // src/svgs/heartFilled.svg
 const Card = ({name, phone, email, image, favoured}) => {
     //setting up a localState w/ initial value from our props that came in with anon func

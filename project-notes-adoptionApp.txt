@@ -263,7 +263,8 @@ How did we do this?
 function called "toggleFavoured" ... I don't understand this part; 
 Maybe we can remove setIsFavoured?
     //setting up a localState w/ initial value from our props that came in with anon func
-    const[isFavoured, setIsFavoured] = useState(favoured);
+
+    const[isFavoured, setIsFavoured] = useState(favoured);  <------ this is just how you use the `'useState' hook` 
     const toggleFavoured = () => {
         setIsFavoured(!isFavoured);
     };
@@ -285,10 +286,27 @@ I tried this which didn't work, I guess I need to read about toggling state onCl
     };
 
 I think I really need to understand this, I'll try to find something on this
+maybe I need to read/try this: 
+https://designcode.io/react-hooks-handbook-toggle-a-state
+
+it's called the "useState hook" and this is just how it's done; 
+maybe I can find some more examples, but this is just the syntax; 
 
 -           -           -           -           -           -           -           -           -
 -           -           -           -           -           -           -           -           -
-@34: 
+
+@34:   time for some manual testing & actually use our code in the App.js file; 
+
+go to App.js and remove all the stuff in the function App() "return" area and the App.css import; 
+we put a div for Card in the return statement, and we pass in the props we used in our Card.test.js file; 
+WE have to update the formatting to use "=" instead of ":" and remove the commas; 
+@1.18 of 34
+We want to start the app, so we do "npm run start" from our terminal; 
+we needed to add the import for Card.css to Card.js for the styling to work though; 
+We also need to add the box shadow to the css file for .card maybe; 
+Now we have our Card component and the heart is behaving as expected, so that's good!
+
+@35: 
 
 
 
