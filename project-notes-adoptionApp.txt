@@ -383,8 +383,26 @@ I opened in chrome to check & it's the same as firefox...
 maybe I have an extra 'return' statement somewhere...
 
 @39  more complex user events --  --  --  --  --  --  --  --  --  --  --
+now we are going to add the filtering component to our project
+it should be pretty easy to do afa (as far as) the tests are concerned, 
+we just need to test that the selector/drop down component changes when we select a different value for it; 
 
+These tests will require us to use a new type of user input for when the user 
+chooses from the drop down menu (we have just used click & type so far)
+mkdir ~/src/components/Filter
+touch Filter.js
+mkdir __test__
+touch Filter.test.js
 
+create assert/expect that will test that the intial value of drop-down/select component is "any"
+/** 
+ * how the select will look (note the initial value should be "any"): 
+ * <select name="" id="">
+ *  <option value="any">Any</option>
+ *  <option value="favourite">favourite</option>
+ *  <option value="not favourite">not favourite</option>
+ * </select>
+ */
 
 
 
