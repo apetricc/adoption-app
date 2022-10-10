@@ -65,7 +65,7 @@ The web app/page will be structured something like this crude ascii diagram:
 _________________________________________________
 |             ___________________               |      ◄|'Pets'
 | 'Filter'    |  {Card}  {Card} |   ◄ 'Cards'   |      ◄|       
-|    |        |  {Card}  {Card} |               |      ◄|
+|    ▼        |  {Card}  {Card} |               |      ◄|
 |             |  {Card} ...     |               |      ◄|
 |             |_________________|               |      ◄|
 |_______________________________________________|
