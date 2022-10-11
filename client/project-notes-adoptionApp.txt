@@ -491,13 +491,49 @@ and add this to our index.html file:
 
 that will style our 'select' component, and maybe some other stuff...? 
 
+we also add the import for the mocks/cats.json file to "Pets.js" and use that so we can see the component working; 
+It is working, although there's no gap b/t the 'select' and the 'cards' but we will fix that later; 
 
+-Next we want to make an HTTP request to get the 'cats' data instead of hard coding it from the /mocks folder;
+TO do this, we will axios!!  
+You could use 'fetch' but axios makes http requests easier and is preferred by most & ∴ is more common; 
+so we have to 'npm i axios' inside the client directory; 
+& in 'Pets.js' we must add the import to use it there, ofc: 
+import axios from "axios"
 
+cut everything from the 'Pets' function & put into a return statement; 
+remove the 'cats' from /mocks import and var
+so we can create a useState hook again! with [cats, setCats]
+and we'll have an async method called fetchCats!  so much stuff happening now;
 
+holy hell, a lot of stuff; 
+Setting up that async method, a useState hook for the cats, 
+axios.get to get the cats data from localhost:4000/cats
+and a new hook---> the "effect" hook in react;  
+see: 
+https://reactjs.org/docs/hooks-effect.html
 
+we commented out the 'Cards' component from the 'Filter' div b/c it might error out right now,
+and NOTE, we need to have our node server up, 
+so open another terminal window/tab, cd to /server and run: 
+node index
 
+& we run "npm run start" from the 'client' folder and look at our browser; 
+Then we can look at our app & inspect the console to see that we have data coming! Pretty cool; 
 
+since we're getting data we can uncomment the 'Cards' component from 'Filter' component/div
+and we should be getting our cats data to populate some 'Card' components in our App, which it is! 
+👍    👍   
 
+now we want to write a t'est that is identical to our 'Cards' test we did before, but now 
+we need to test it inside the 'Pets' component, and we're also using an async http request, 
+so we'll have to go over the issues that will come up trying to do this in the next section; 
+
+= _ = _ =_= _ = _ =_ = _ =_= _ = _ =_ = _ =_= _ = _ =_ = _ =_= _ = _ =_ = _ =_= _ = _ =
+
+@v44 - 'writing a flawed test'
+
+= _ = _ =_= _ = _ =_ = _ =_= _ = _ =_ = _ =_= _ = _ =_ = _ =_= _ = _ =_ = _ =_= _ = _ =
 
 
 
@@ -508,7 +544,7 @@ that will style our 'select' component, and maybe some other stuff...?
 ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~
 ____________________________________________________________________
 
-  ∴   ↓   →   ←   ↔    ▲    ▼    ►    ◄   👍   😉
+∴   ↓   →   ←   ↔    ▲    ▼    ►    ◄   👍   😉
 
 his repository: 
 https://github.com/harblaith7/React-Testing-Library-Udemy-Course
